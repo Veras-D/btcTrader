@@ -11,7 +11,7 @@ module.exports = {
     trading: {
         symbol: 'BTCUSDT',
         initialBalance: parseFloat(process.env.INITIAL_BALANCE) || 100,
-        leverage: parseInt(process.env.LEVERAGE) || 10,
+        leverage: parseInt(process.env.LEVERAGE) || 5,
         riskPerTrade: parseFloat(process.env.RISK_PER_TRADE) || 0.05,
         indicators: {
             rsi: {
