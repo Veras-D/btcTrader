@@ -1,16 +1,18 @@
+require('dotenv').config();
+
 module.exports = {
     binance: {
-        apiKey: 'sua_api_key',
-        apiSecret: 'seu_api_secret'
+        apiKey: process.env.BINANCE_API_KEY_TEST,
+        apiSecret: process.env.BINANCE_API_SECRET_TEST
     },
     database: {
-        path: './trades.db'
+        path: process.env.DB_PATH || './trades.db'
     },
     trading: {
         symbol: 'BTCUSDT',
-        initialBalance: 100,
-        leverage: 5, // Alavancagem para futuros
-        riskPerTrade: 0.05, // 5% do capital por trade
+        initialBalance: parseFloat(process.env.INITIAL_BALANCE) || 100,
+        leverage: parseInt(process.env.LEVERAGE) || 10,
+        riskPerTrade: parseFloat(process.env.RISK_PER_TRADE) || 0.05,
         indicators: {
             rsi: {
                 period: 14,
@@ -24,6 +26,6 @@ module.exports = {
         }
     },
     server: {
-        port: 3000
+        port: parseInt(process.env.PORT) || 3000
     }
 };
